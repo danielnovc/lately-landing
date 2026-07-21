@@ -1,5 +1,5 @@
 Exit code: 0
-Wall time: 1.5 seconds
+Wall time: 0.6 seconds
 Output:
 # Lately Landing
 
@@ -19,13 +19,13 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Deploy with Coolify
+## Deploy with Coolify and Nixpacks
 
-Create a new **Dockerfile** resource in Coolify and point it at this repository. Coolify can use the included `Dockerfile` directly; the container listens on port `3000` and exposes `/api/health` for health checks.
+Create a Nixpacks resource in Coolify and point it at this repository. Nixpacks will detect Next.js automatically. Use `npm run build` as the build command and `npm run start` as the start command; expose port `3000` and use `/api/health` as the health-check path.
 
 Set `NEXT_PUBLIC_SITE_URL` to the public HTTPS URL for the site (for example, `https://latelyapp.app`). This value powers canonical URLs, Open Graph metadata, JSON-LD, `robots.txt`, and `sitemap.xml`.
 
-The image uses Next.js standalone output and runs as a non-root user. Keep the default start command from the Dockerfile and configure TLS/domain handling in Coolify's proxy.
+Set the production domain and TLS certificate through Coolify's proxy settings.
 
 ## Structure
 
