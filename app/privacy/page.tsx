@@ -4,9 +4,9 @@ import { LegalPage } from "@/components/LegalPage";
 export const metadata: Metadata = { title: "Privacy Policy", description: "How Lately handles your memories, photos, speech, purchases and optional AI recaps." };
 
 export default function PrivacyPage() {
-  return <LegalPage eyebrow="Your memories, explained clearly" title="Privacy Policy" updated="July 20, 2026">
+  return <LegalPage eyebrow="Your memories, explained clearly" title="Privacy Policy" updated="July 22, 2026">
     <p className="legal-lede">Lately is a personal journaling app operated by Daniel Nosevic (“Lately,” “we,” “us,” or “our”). This policy explains what information Lately processes, why it is processed, and the choices available to you.</p>
-    <aside><strong>The short version:</strong> your journal starts on your device. iCloud sync is optional. AI recaps are optional and require sending the memories you select to Google Gemini. We do not sell your personal information.</aside>
+    <aside><strong>The short version:</strong> your journal starts on your device. iCloud sync is optional. AI recaps run only when you request them and require sending the relevant memories to Google Gemini. We do not sell your personal information.</aside>
 
     <h2>1. Information you provide</h2>
     <h3>Journal content</h3><p>Lately stores the notes, prompts, dates, doodles and other journal details you create in a local SQLite database on your device.</p>
@@ -15,7 +15,7 @@ export default function PrivacyPage() {
 
     <h2>2. iCloud sync</h2><p>If iCloud is available and enabled, Lately synchronizes your journal database and referenced images through the private iCloud container associated with your Apple ID. Apple operates iCloud and controls its infrastructure. You can manage or delete Lately’s iCloud data through your Apple device settings. If iCloud is unavailable, your memories remain only on the device and may be lost when the app is deleted.</p>
 
-    <h2>3. Optional AI recaps</h2><p>Lately can create month and year recaps using Google Gemini. This feature runs only when you request a recap. To provide it, Lately sends the journal text, prompts and selected photos needed for that recap to Google’s Gemini API. Google processes that content to return generated text. Do not include information you do not want processed by an AI provider. AI output can be inaccurate and should not be treated as professional advice.</p>
+    <h2>3. Optional AI recaps</h2><p>Lately can create month and year recaps using Google Gemini. This feature runs only when you request a recap. To provide it, Lately sends the dates, prompts and journal text from memories in the requested month or year, together with a limited number of photos attached to those memories, directly from your device to Google’s Gemini API. Doodle drawing data is not sent for recap generation. Google processes the submitted content to return generated recap text. Lately does not send memories from other months or years as part of that request. Do not include information you do not want processed by an AI provider. AI output can be inaccurate and should not be treated as professional advice.</p>
 
     <h2>4. Purchases and subscriptions</h2><p>Purchases are processed by Apple through the App Store. Lately uses RevenueCat to retrieve offerings, confirm entitlement status, restore purchases and support subscription management. RevenueCat may process an anonymous app-user identifier, product and purchase information, entitlement status, device/platform information and limited diagnostics. Lately does not receive your full payment-card details.</p>
 
