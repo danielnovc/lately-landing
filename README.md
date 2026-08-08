@@ -27,6 +27,37 @@ Set `NEXT_PUBLIC_SITE_URL` to the public HTTPS URL for the site (for example, `h
 
 Set the production domain and TLS certificate through Coolify's proxy settings.
 
+## Recap API
+
+The iOS app calls `POST https://api.uselately.app/v1/recaps`. Add
+`api.uselately.app` as a second domain on this same Coolify resource, then create
+a proxied Cloudflare DNS record for `api` pointing at the Coolify server. Keep
+the Coolify origin port private so requests cannot bypass Cloudflare.
+
+Use Cloudflare SSL/TLS mode **Full (strict)**. If your plan supports rate-limit
+rules, add a rule for `api.uselately.app/v1/recaps` using the same 12 requests
+per 10 minutes per-IP ceiling as the application. Do not cache `/v1/*`. For the
+strongest origin protection, allow inbound web traffic only from Cloudflare's
+published IP ranges; the application still enforces subscription and customer
+rate limits if that is not possible.
+
+Configure these server-only environment variables in Coolify:
+
+- `GEMINI_API_KEY`: a rotated Gemini authorization key
+- `GEMINI_MODEL`: defaults to `gemini-2.5-flash`
+- `REVENUECAT_V2_SECRET_API_KEY`: a RevenueCat v2 secret key limited to
+  `customer_information:customers:read`
+- `REVENUECAT_PROJECT_ID`: the RevenueCat project ID (`proj...`)
+- `REVENUECAT_ENTITLEMENT_ID`: the RevenueCat entitlement ID (`entl...`), not
+  its display name
+- `NEXT_PUBLIC_SITE_URL`: `https://uselately.app`
+
+Do not prefix Gemini or RevenueCat secret keys with `NEXT_PUBLIC_`. The endpoint
+validates request size and shape, verifies the caller's active RevenueCat
+entitlement, and rate-limits both the Cloudflare client IP and RevenueCat user.
+The in-memory limiter assumes one Coolify replica; use a shared Redis-backed
+limiter before scaling this resource horizontally.
+
 ## Structure
 
 ```
