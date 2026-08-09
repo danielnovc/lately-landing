@@ -19,7 +19,7 @@ export default function PrivacyPage() {
 
     <h2>4. Purchases and subscriptions</h2><p>Purchases are processed by Apple through the App Store. Lately uses RevenueCat to retrieve offerings, confirm entitlement status, restore purchases and support subscription management. RevenueCat may process an anonymous app-user identifier, product and purchase information, entitlement status, device/platform information and limited diagnostics. Lately does not receive your full payment-card details.</p>
 
-    <h2>5. Notifications</h2><p>If you grant permission, Lately schedules journaling reminders using Apple notification services. You can disable notifications at any time in iOS Settings. Lately does not require notification permission to use the journal.</p>
+    <h2>5. Notifications</h2><p>If you grant permission, Lately can schedule optional journaling reminders and, when your purchase includes a free trial, one local reminder two days before that trial ends. These notifications are scheduled on your device using Apple notification services. You can disable notifications at any time in iOS Settings. Lately does not require notification permission to use the journal.</p>
 
     <h2>6. How we use information</h2><ul><li>Provide, maintain and synchronize the journal.</li><li>Transcribe speech and generate recaps you request.</li><li>Confirm paid access and restore purchases.</li><li>Respond to support requests and diagnose failures.</li><li>Protect the service and comply with legal obligations.</li></ul>
 
